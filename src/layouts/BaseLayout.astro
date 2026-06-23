@@ -10,6 +10,7 @@ interface Props {
   description?: string;
   image?: string;
   type?: 'website' | 'article';
+  canonicalUrl?: string;
 }
 
 const {
@@ -17,6 +18,7 @@ const {
   description = SITE_DESCRIPTION,
   image,
   type = 'website',
+  canonicalUrl,
 } = Astro.props;
 ---
 
@@ -28,6 +30,7 @@ const {
       description={description}
       image={image}
       type={type}
+      canonicalUrl={canonicalUrl}
     />
   </head>
   <body>

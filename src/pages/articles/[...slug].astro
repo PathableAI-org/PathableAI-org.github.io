@@ -5,7 +5,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import FormattedDate from '../../components/FormattedDate.astro';
 import MaturityBadge from '../../components/MaturityBadge.astro';
 import { getCategory } from '../../consts';
-import { tagUrl, type Article } from '../../lib/articles';
+import { tagUrl, formatAuthors, type Article } from '../../lib/articles';
 import { getPublishedArticles } from '../../lib/articles';
 
 export const getStaticPaths = (async () => {
@@ -24,13 +24,16 @@ const { article } = Astro.props;
 const { data } = article;
 const category = getCategory(data.category);
 const { Content } = await render(article);
+const socialImage = data.socialImage?.src ?? data.heroImage?.src;
+const canonicalOverride = data.canonicalUrl;
 ---
 
 <BaseLayout
   title={data.title}
   description={data.description}
   type="article"
-  image={data.heroImage?.src}
+  image={socialImage}
+  canonicalUrl={canonicalOverride}
 >
   <article>
     <header class="article-head">
@@ -42,7 +45,7 @@ const { Content } = await render(article);
       <div class="byline">
         <MaturityBadge level={data.maturity} />
         <span class="muted">
-          By {data.author} &middot;{' '}
+          By {formatAuthors(data.authors)} &middot;{' '}
           <FormattedDate date={data.pubDate} />
           {
             data.updatedDate && (
@@ -52,6 +55,7 @@ const { Content } = await render(article);
               </>
             )
           }
+          {data.reviewedBy && <> &middot; Reviewed by {data.reviewedBy}</>}
         </span>
       </div>
       {

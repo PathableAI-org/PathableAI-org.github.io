@@ -1,52 +1,51 @@
 /*
- * Brand tokens
- * ------------
- * These are PLACEHOLDER values chosen for strong contrast and a calm,
- * professional feel. They are intended to be replaced with the official
- * PathAble visual-guideline tokens (color, typography, spacing) once those
- * are wired in. Keep all brand decisions expressed as custom properties here
- * so the rest of the site does not hard-code colors or fonts.
- *
- * Contrast: foreground/background pairs below target WCAG AA (>= 4.5:1 for
- * body text). Re-check contrast whenever tokens change.
+ * PathAble brand tokens
+ * ---------------------
+ * Colors and typography from the 2026 PathAble Brand Book (Notion).
+ * Semantic tokens map brand palette values to publication UI roles.
+ * Re-check contrast whenever tokens change.
  */
 :root {
-  color-scheme: light dark;
+  color-scheme: light;
 
-  /* Brand palette (placeholder) */
-  --brand-900: #0b2a4a;
-  --brand-700: #14467c;
-  --brand-600: #1a5ba6;
-  --brand-500: #2670c4;
-  --brand-300: #7db0e6;
-  --accent-600: #0f766e;
-  --accent-500: #0d9488;
+  /* Brand palette */
+  --pathable-blue: #00365c;
+  --intelligent-jade: #1cae96;
+  --bright-blue-brooks: #4899e8;
+  --tech-teal: #015a76;
+  --lived-in-lime: #d3ff66;
+  --shilling-silver: #dde2e8;
 
-  /* Neutrals */
-  --gray-50: #f7f9fb;
-  --gray-100: #eef2f6;
-  --gray-200: #dce3ea;
-  --gray-400: #9aa7b4;
-  --gray-600: #586573;
-  --gray-700: #3f4a56;
-  --gray-900: #161c23;
+  /* Derived neutrals */
+  --gray-50: #f4f7f9;
+  --gray-100: var(--shilling-silver);
+  --gray-200: #c5cdd6;
+  --gray-400: #7a8a99;
+  --gray-600: #4a5a68;
+  --gray-700: #2f3f4d;
+  --gray-900: var(--pathable-blue);
 
   /* Semantic tokens (light) */
   --color-bg: var(--gray-50);
   --color-surface: #ffffff;
-  --color-text: var(--gray-900);
+  --color-text: var(--pathable-blue);
   --color-text-muted: var(--gray-600);
   --color-border: var(--gray-200);
-  --color-link: var(--brand-600);
-  --color-link-hover: var(--brand-700);
-  --color-accent: var(--accent-600);
-  --color-focus: var(--brand-500);
+  --color-link: var(--tech-teal);
+  --color-link-hover: var(--pathable-blue);
+  --color-accent: var(--tech-teal);
+  --color-focus: var(--bright-blue-brooks);
+  --color-highlight: var(--lived-in-lime);
 
-  /* Typography */
+  /* Typography — Fredoka (headings), Montserrat (subheadings), Nunito (body) */
+  --font-heading:
+    'Fredoka', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-subheading:
+    'Montserrat', ui-sans-serif, system-ui, -apple-system, 'Segoe UI',
+    sans-serif;
   --font-sans:
-    ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica,
-    Arial, sans-serif;
-  --font-serif: ui-serif, Georgia, Cambria, 'Times New Roman', serif;
+    'Nunito', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto,
+    Helvetica, Arial, sans-serif;
   --font-mono:
     ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace;
 
@@ -60,21 +59,22 @@
   --space-12: 3rem;
   --space-16: 4rem;
   --radius: 10px;
-  --content-width: 72ch;
+  --content-width: 70ch;
   --page-width: 1080px;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --color-bg: #0c1116;
-    --color-surface: #141b22;
-    --color-text: #e7edf3;
-    --color-text-muted: #aab6c2;
-    --color-border: #26313c;
-    --color-link: var(--brand-300);
-    --color-link-hover: #a8cdef;
-    --color-accent: var(--accent-500);
-    --color-focus: var(--brand-300);
+    color-scheme: dark;
+    --color-bg: #071018;
+    --color-surface: #0e1a24;
+    --color-text: #e8f0f5;
+    --color-text-muted: #9eb0be;
+    --color-border: #1e3344;
+    --color-link: var(--bright-blue-brooks);
+    --color-link-hover: #7db8f0;
+    --color-accent: var(--intelligent-jade);
+    --color-focus: var(--bright-blue-brooks);
   }
 }
 
@@ -100,18 +100,23 @@ body {
   flex-direction: column;
 }
 
-h1,
+h1 {
+  font-family: var(--font-heading);
+  font-weight: 400;
+  line-height: 1.15;
+  color: var(--color-text);
+  font-size: clamp(2rem, 1.4rem + 2.4vw, 2.9rem);
+}
+
 h2,
 h3,
 h4 {
-  line-height: 1.2;
+  font-family: var(--font-subheading);
   font-weight: 700;
+  line-height: 1.25;
   color: var(--color-text);
 }
 
-h1 {
-  font-size: clamp(2rem, 1.4rem + 2.4vw, 2.9rem);
-}
 h2 {
   font-size: clamp(1.5rem, 1.2rem + 1.2vw, 2rem);
 }
@@ -170,6 +175,7 @@ main {
 }
 
 .eyebrow {
+  font-family: var(--font-subheading);
   text-transform: uppercase;
   letter-spacing: 0.08em;
   font-size: 0.8rem;
@@ -221,12 +227,12 @@ main {
   color: var(--color-text-muted);
 }
 .badge[data-maturity='stable'] {
-  color: var(--accent-600);
-  border-color: var(--accent-500);
+  color: var(--tech-teal);
+  border-color: var(--tech-teal);
 }
 .badge[data-maturity='evolving'] {
-  color: var(--brand-600);
-  border-color: var(--brand-300);
+  color: var(--pathable-blue);
+  border-color: var(--bright-blue-brooks);
 }
 
 .tag-list {
@@ -248,15 +254,16 @@ main {
 
 .btn {
   display: inline-block;
-  background: var(--brand-600);
+  background: var(--pathable-blue);
   color: #fff;
   padding: var(--space-3) var(--space-6);
   border-radius: var(--radius);
   text-decoration: none;
-  font-weight: 600;
+  font-family: var(--font-subheading);
+  font-weight: 700;
 }
 .btn:hover {
-  background: var(--brand-700);
+  background: var(--tech-teal);
   color: #fff;
 }
 
@@ -274,7 +281,7 @@ main {
   margin-top: var(--space-8);
 }
 .prose pre {
-  background: var(--gray-900);
+  background: var(--pathable-blue);
   color: var(--gray-50);
   padding: var(--space-4);
   border-radius: var(--radius);
@@ -291,7 +298,7 @@ main {
   border-radius: 4px;
 }
 .prose blockquote {
-  border-left: 4px solid var(--brand-300);
+  border-left: 4px solid var(--intelligent-jade);
   margin-inline: 0;
   padding-left: var(--space-4);
   color: var(--color-text-muted);

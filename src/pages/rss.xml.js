@@ -1,5 +1,9 @@
 import rss from '@astrojs/rss';
-import { getPublishedArticles, articleUrl } from '../lib/articles';
+import {
+  getPublishedArticles,
+  articleUrl,
+  formatAuthors,
+} from '../lib/articles';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 
 export async function GET(context) {
@@ -14,7 +18,7 @@ export async function GET(context) {
       pubDate: article.data.pubDate,
       link: articleUrl(article),
       categories: [article.data.category, ...article.data.tags],
-      author: article.data.author,
+      author: formatAuthors(article.data.authors),
     })),
   });
 }

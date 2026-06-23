@@ -4,7 +4,7 @@ description: 'A pattern for designing complex forms where the screen reader expe
 pubDate: 2026-06-18
 category: architecture-notes
 tags: ['accessibility', 'forms', 'design-patterns']
-author: 'PathAble Engineering'
+authors: ['PathAble Engineering']
 maturity: evolving
 ---
 

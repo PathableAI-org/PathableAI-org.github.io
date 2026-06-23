@@ -44,6 +44,11 @@ export function articleUrl(entry: Article): string {
   return `/articles/${entry.id}/`;
 }
 
+/** Comma-separated author list for display and RSS. */
+export function formatAuthors(authors: string[]): string {
+  return authors.join(', ');
+}
+
 export function tagUrl(tag: string): string {
   return `/tags/${tag.toLowerCase().replace(/\s+/g, '-')}/`;
 }

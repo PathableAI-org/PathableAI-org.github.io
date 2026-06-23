@@ -4,7 +4,7 @@ description: 'The lightweight accessibility checklist we run on every front-end 
 pubDate: 2026-06-12
 category: practice-guides
 tags: ['accessibility', 'code-review', 'process']
-author: 'PathAble Engineering'
+authors: ['PathAble Engineering']
 maturity: stable
 ---
 

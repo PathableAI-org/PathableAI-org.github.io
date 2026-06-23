@@ -18,13 +18,16 @@ const articles = defineCollection({
       updatedDate: z.coerce.date().optional(),
       category: z.enum(CATEGORY_IDS),
       tags: z.array(z.string()).default([]),
-      author: z.string().default('PathAble Engineering'),
+      authors: z.array(z.string()).default(['PathAble Engineering']),
+      reviewedBy: z.string().optional(),
       // Make experimental status explicit per the launch guardrails.
       maturity: z
         .enum(['experimental', 'evolving', 'stable'])
         .default('experimental'),
       // Drafts are excluded from production builds.
       draft: z.boolean().default(false),
+      canonicalUrl: z.string().url().optional(),
+      socialImage: image().optional(),
       heroImage: image().optional(),
       heroAlt: z.string().optional(),
     }),
