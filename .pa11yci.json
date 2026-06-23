@@ -1,0 +1,19 @@
+{
+  "defaults": {
+    "standard": "WCAG2AA",
+    "timeout": 30000,
+    "chromeLaunchConfig": {
+      "args": ["--no-sandbox", "--disable-setuid-sandbox"]
+    }
+  },
+  "urls": [
+    "http://localhost:4321/",
+    "http://localhost:4321/field-notes/",
+    "http://localhost:4321/architecture-notes/",
+    "http://localhost:4321/practice-guides/",
+    "http://localhost:4321/open-source/",
+    "http://localhost:4321/about/",
+    "http://localhost:4321/tags/",
+    "http://localhost:4321/articles/welcome-to-pathable-engineering/"
+  ]
+}

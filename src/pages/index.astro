@@ -1,0 +1,80 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ArticleCard from '../components/ArticleCard.astro';
+import { getPublishedArticles } from '../lib/articles';
+import { CATEGORIES, SITE_TAGLINE } from '../consts';
+
+const articles = await getPublishedArticles();
+const recent = articles.slice(0, 6);
+---
+
+<BaseLayout>
+  <section class="hero">
+    <p class="eyebrow">PathAble Engineering &middot; Labs</p>
+    <h1>{SITE_TAGLINE}</h1>
+    <p class="lede muted">
+      Field notes, architecture notes, practice guides, and open-source work
+      from the team building human-centered, AI-enhanced software for the
+      disability employment community.
+    </p>
+    <p class="hero-actions">
+      <a class="btn" href="/field-notes/">Read the field notes</a>
+      <a class="link" href="/rss.xml">Subscribe via RSS</a>
+    </p>
+  </section>
+
+  <section aria-labelledby="explore-heading" class="section">
+    <h2 id="explore-heading">Explore</h2>
+    <ul class="card-grid">
+      {
+        CATEGORIES.map((category) => (
+          <li class="card">
+            <h3>
+              <a href={`/${category.id}/`}>{category.label}</a>
+            </h3>
+            <p class="muted">{category.blurb}</p>
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+
+  <section aria-labelledby="recent-heading" class="section">
+    <h2 id="recent-heading">Latest articles</h2>
+    {
+      recent.length > 0 ? (
+        <ul class="card-grid">
+          {recent.map((article) => (
+            <ArticleCard article={article} />
+          ))}
+        </ul>
+      ) : (
+        <p class="muted">No articles yet.</p>
+      )
+    }
+  </section>
+</BaseLayout>
+
+<style>
+  .hero {
+    padding-block: var(--space-8) var(--space-12);
+    max-width: var(--content-width);
+  }
+  .lede {
+    font-size: 1.25rem;
+  }
+  .hero-actions {
+    display: flex;
+    align-items: center;
+    gap: var(--space-6);
+    flex-wrap: wrap;
+    margin-top: var(--space-6);
+  }
+  .section {
+    margin-top: var(--space-16);
+  }
+  .section h2 {
+    border-bottom: 1px solid var(--color-border);
+    padding-bottom: var(--space-2);
+  }
+</style>

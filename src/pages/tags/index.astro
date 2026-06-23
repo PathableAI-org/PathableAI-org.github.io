@@ -1,0 +1,39 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getTagMap, tagUrl } from '../../lib/articles';
+
+const tagMap = await getTagMap();
+const tags = [...tagMap.entries()];
+---
+
+<BaseLayout
+  title="Tags"
+  description="Browse PathAble Engineering articles by topic."
+>
+  <header class="page-head">
+    <h1>Tags</h1>
+    <p class="muted">Browse articles by topic.</p>
+  </header>
+
+  {
+    tags.length > 0 ? (
+      <ul class="tag-list">
+        {tags.map(([tag, list]) => (
+          <li>
+            <a class="tag" href={tagUrl(tag)}>
+              #{tag} <span class="muted">({list.length})</span>
+            </a>
+          </li>
+        ))}
+      </ul>
+    ) : (
+      <p class="muted">No tags yet.</p>
+    )
+  }
+</BaseLayout>
+
+<style>
+  .page-head {
+    margin-bottom: var(--space-8);
+  }
+</style>
