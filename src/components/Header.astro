@@ -12,7 +12,14 @@ function isActive(href: string): boolean {
 <header class="site-header">
   <div class="container header-inner">
     <a href="/" class="brand" aria-label={`${SITE_TITLE} home`}>
-      <span class="brand-mark" aria-hidden="true">P</span>
+      <img
+        class="brand-logo"
+        src="/images/pathable-favicon-48.png"
+        width="36"
+        height="36"
+        alt=""
+        aria-hidden="true"
+      />
       <span class="brand-text">{SITE_TITLE}</span>
     </a>
     <nav aria-label="Primary">
@@ -54,20 +61,17 @@ function isActive(href: string): boolean {
     display: inline-flex;
     align-items: center;
     gap: var(--space-2);
-    font-weight: 800;
+    font-family: var(--font-subheading);
+    font-weight: 700;
     text-decoration: none;
     color: var(--color-text);
-    font-size: 1.1rem;
+    font-size: 1.05rem;
   }
-  .brand-mark {
-    display: inline-grid;
-    place-items: center;
-    width: 1.9rem;
-    height: 1.9rem;
-    border-radius: 8px;
-    background: var(--brand-600);
-    color: #fff;
-    font-weight: 800;
+  .brand-logo {
+    display: block;
+    width: 2.25rem;
+    height: 2.25rem;
+    object-fit: contain;
   }
   nav ul {
     display: flex;
@@ -80,7 +84,9 @@ function isActive(href: string): boolean {
   nav a {
     text-decoration: none;
     color: var(--color-text-muted);
-    font-weight: 600;
+    font-family: var(--font-subheading);
+    font-weight: 700;
+    font-size: 0.9rem;
     padding-block: var(--space-1);
   }
   nav a:hover {

@@ -1,6 +1,6 @@
 ---
 import type { Article } from '../lib/articles';
-import { articleUrl } from '../lib/articles';
+import { articleUrl, formatAuthors } from '../lib/articles';
 import { getCategory } from '../consts';
 import FormattedDate from './FormattedDate.astro';
 import MaturityBadge from './MaturityBadge.astro';
@@ -31,7 +31,7 @@ const category = getCategory(data.category);
   </h3>
   <p class="muted">{data.description}</p>
   <p class="muted small">
-    <FormattedDate date={data.pubDate} /> · {data.author}
+    <FormattedDate date={data.pubDate} /> · {formatAuthors(data.authors)}
   </p>
 </li>
 

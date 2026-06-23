@@ -4,7 +4,7 @@ description: 'Notes on packaging our color and spacing tokens as an open, contra
 pubDate: 2026-06-05
 category: open-source
 tags: ['design-tokens', 'accessibility', 'open-source']
-author: 'PathAble Engineering'
+authors: ['PathAble Engineering']
 maturity: experimental
 ---
 

@@ -6,7 +6,8 @@
  * so it is referenced through a single constant here.
  */
 
-export const SITE_TITLE = 'PathAble Engineering';
+/** Initial public label per launch issue; sub-brand name not yet finalized. */
+export const SITE_TITLE = 'Engineering at PathAble';
 export const SITE_TAGLINE = 'Accessible, accountable, workflow-first software.';
 export const SITE_DESCRIPTION =
   'Field notes, architecture notes, practice guides, and open-source work from the PathAble engineering team. Human-centered, AI-enhanced.';
@@ -43,6 +44,12 @@ export const CATEGORIES = [
     id: 'open-source',
     label: 'Open Source',
     blurb: 'Tools, libraries, and documentation we maintain in the open.',
+  },
+  {
+    id: 'retrospectives',
+    label: 'Retrospectives',
+    blurb:
+      'Honest looks back at what we shipped, what we learned, and what we would do differently.',
   },
 ] as const;
 

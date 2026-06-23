@@ -1,14 +1,15 @@
 ---
-title: 'Launching PathAble Engineering'
+title: 'Launching Engineering at PathAble'
 description: 'Why we are starting a public engineering publication, what we will write about, and the principles that guide it.'
 pubDate: 2026-06-23
 category: field-notes
 tags: ['announcement', 'editorial', 'accessibility']
-author: 'PathAble Engineering'
+authors: ['PathAble Engineering']
+reviewedBy: 'PathAble Engineering editorial'
 maturity: stable
 ---
 
-Welcome to **PathAble Engineering** — the public home for the technical work
+Welcome to **Engineering at PathAble** — the public home for the technical work
 behind PathAble's human-centered, AI-enhanced software. This is our first
 article, and it doubles as a short statement of intent.
 
