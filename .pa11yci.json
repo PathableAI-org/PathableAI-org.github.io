@@ -14,7 +14,6 @@
     "http://localhost:4321/open-source/",
     "http://localhost:4321/retrospectives/",
     "http://localhost:4321/about/",
-    "http://localhost:4321/tags/",
-    "http://localhost:4321/articles/welcome-to-pathable-engineering/"
+    "http://localhost:4321/tags/"
   ]
 }
