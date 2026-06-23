@@ -84,6 +84,13 @@ Merging to `main` triggers `.github/workflows/deploy.yml`, which builds with
 Astro and deploys to GitHub Pages. Pull requests run CI (type check, lint,
 format, build, link check, accessibility).
 
+**One-time setup:** In the repository **Settings → Pages → Build and
+deployment**, set **Source** to **GitHub Actions** (not "Deploy from a
+branch"). This site is built with Astro, not Jekyll; if Pages is set to deploy
+from a branch, the built-in Jekyll builder will fail on `.astro` source files.
+The `public/.nojekyll` file is included so the deployed static output is served
+as-is.
+
 ## Relationship to pathableai.com
 
 This site is the canonical home for technical writing. The main company website

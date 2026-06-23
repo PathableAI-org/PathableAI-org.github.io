@@ -10,7 +10,7 @@
 export const SITE_TITLE = 'Engineering at PathAble';
 export const SITE_TAGLINE = 'Accessible, accountable, workflow-first software.';
 export const SITE_DESCRIPTION =
-  'Field notes, architecture notes, practice guides, and open-source work from the PathAble engineering team. Human-centered, AI-enhanced.';
+  'Engineering articles, architecture notes, practice guides, and open-source work from the PathAble team — content forthcoming.';
 
 /** Umbrella company that owns this publication. */
 export const PARENT_BRAND = 'PathAble';

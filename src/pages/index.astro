@@ -1,11 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import ArticleCard from '../components/ArticleCard.astro';
-import { getPublishedArticles } from '../lib/articles';
 import { CATEGORIES, SITE_TAGLINE } from '../consts';
-
-const articles = await getPublishedArticles();
-const recent = articles.slice(0, 6);
 ---
 
 <BaseLayout>
@@ -17,10 +12,7 @@ const recent = articles.slice(0, 6);
       from the team building human-centered, AI-enhanced software for the
       disability employment community.
     </p>
-    <p class="hero-actions">
-      <a class="btn" href="/field-notes/">Read the field notes</a>
-      <a class="link" href="/rss.xml">Subscribe via RSS</a>
-    </p>
+    <p class="forthcoming">Content forthcoming.</p>
   </section>
 
   <section aria-labelledby="explore-heading" class="section">
@@ -39,19 +31,12 @@ const recent = articles.slice(0, 6);
     </ul>
   </section>
 
-  <section aria-labelledby="recent-heading" class="section">
-    <h2 id="recent-heading">Latest articles</h2>
-    {
-      recent.length > 0 ? (
-        <ul class="card-grid">
-          {recent.map((article) => (
-            <ArticleCard article={article} />
-          ))}
-        </ul>
-      ) : (
-        <p class="muted">No articles yet.</p>
-      )
-    }
+  <section aria-labelledby="coming-soon-heading" class="section">
+    <h2 id="coming-soon-heading">Coming soon</h2>
+    <p class="muted">
+      We are preparing our first articles. Check back for field notes,
+      architecture decisions, practice guides, and open-source documentation.
+    </p>
   </section>
 </BaseLayout>
 
@@ -63,12 +48,16 @@ const recent = articles.slice(0, 6);
   .lede {
     font-size: 1.25rem;
   }
-  .hero-actions {
-    display: flex;
-    align-items: center;
-    gap: var(--space-6);
-    flex-wrap: wrap;
+  .forthcoming {
+    display: inline-block;
     margin-top: var(--space-6);
+    padding: var(--space-2) var(--space-4);
+    font-family: var(--font-subheading);
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--pathable-blue);
+    background: var(--color-highlight);
+    border-radius: var(--radius);
   }
   .section {
     margin-top: var(--space-16);
