@@ -61,7 +61,8 @@ Visual identity follows the 2026 PathAble Brand Book:
 - **Colors:** PathAble Blue (`#00365C`), Intelligent Jade (`#1CAE96`), Tech Teal
   (`#015A76`), Bright Blue Brooks (`#4899E8`), Shilling Silver (`#DDE2E8`), and
   Lived-In Lime (`#D3FF66`) as a sparing accent only.
-- **Typography:** Fredoka (headings), Montserrat (subheadings), Nunito (body).
+- **Typography:** Fredoka (headings), Montserrat (subheadings), Nunito (body),
+  self-hosted via `@fontsource/*` (no third-party font requests).
 - **Logo:** approved PathAble mark in `public/images/` — do not modify, recolor,
   or recreate.
 

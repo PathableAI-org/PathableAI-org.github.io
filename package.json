@@ -22,6 +22,9 @@
   "dependencies": {
     "@astrojs/rss": "^4.0.18",
     "@astrojs/sitemap": "^3.7.3",
+    "@fontsource/fredoka": "^5.2.10",
+    "@fontsource/montserrat": "^5.2.8",
+    "@fontsource/nunito": "^5.2.7",
     "astro": "^7.0.0"
   },
   "devDependencies": {

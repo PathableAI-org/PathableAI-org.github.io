@@ -22,7 +22,7 @@ const {
 // Canonical URL is derived from the configured `site` so every page exposes a
 // stable canonical link (required for cross-posting to LinkedIn).
 const canonicalURL = canonicalUrl
-  ? new URL(canonicalUrl)
+  ? new URL(canonicalUrl, Astro.site)
   : new URL(Astro.url.pathname, Astro.site);
 const ogImage = image ? new URL(image, Astro.site) : undefined;
 const fullTitle = title === SITE_TITLE ? title : `${title} · ${SITE_TITLE}`;
@@ -32,12 +32,6 @@ const fullTitle = title === SITE_TITLE ? title : `${title} · ${SITE_TITLE}`;
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="icon" href="/images/pathable-favicon.png" type="image/png" />
 <link rel="apple-touch-icon" href="/images/pathable-apple-touch-icon.png" />
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link
-  href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400&family=Montserrat:wght@700&family=Nunito:wght@400;600;700&display=swap"
-  rel="stylesheet"
-/>
 <link rel="sitemap" href="/sitemap-index.xml" />
 <link
   rel="alternate"
