@@ -1,0 +1,64 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { PARENT_BRAND, PARENT_SITE, SITE_TITLE } from '../consts';
+---
+
+<BaseLayout
+  title="About PathAble Engineering"
+  description="What this publication is, who maintains it, and how we work in the open."
+>
+  <article class="prose">
+    <p class="eyebrow">About</p>
+    <h1>About {SITE_TITLE}</h1>
+
+    <p class="lede muted">
+      {SITE_TITLE} is the public engineering publication of{' '}
+      <a href={PARENT_SITE} rel="noopener">{PARENT_BRAND}</a> &mdash; a mission-driven
+      studio building accessible, accountable, workflow-first software for the disability
+      employment community.
+    </p>
+
+    <h2>What you'll find here</h2>
+    <p>
+      We publish technical articles, architecture notes, practice guides, and
+      open-source documentation. This is a space for sharing how we build, the
+      trade-offs we make, and the accessibility practices we hold ourselves to.
+    </p>
+
+    <h2>Editorial principles</h2>
+    <ul>
+      <li>
+        <strong>Synthetic examples only.</strong> We never publish protected health
+        information, customer details, or sensitive implementation details. All examples
+        are illustrative.
+      </li>
+      <li>
+        <strong>Accessible by default.</strong> Articles are reviewed for accessibility
+        (semantics, contrast, alt text) before publication.
+      </li>
+      <li>
+        <strong>Honest about maturity.</strong> Work is clearly labeled as experimental,
+        evolving, or stable.
+      </li>
+      <li>
+        <strong>No unsupported claims.</strong> We avoid overstating security, accessibility,
+        or compliance guarantees.
+      </li>
+    </ul>
+
+    <h2>Engineering vs. company website</h2>
+    <p>
+      This site is the canonical home for our technical writing. For company,
+      product, services, and pilot-program information, visit{' '}
+      <a href={PARENT_SITE} rel="noopener">pathableai.com</a>.
+    </p>
+
+    <h2>Ownership &amp; review</h2>
+    <p>
+      Ownership and editorial review responsibilities are documented in the
+      repository under <code>docs/editorial-and-ownership.md</code>. The
+      generator and repository strategy are recorded in{' '}
+      <code>docs/decision-records/</code>.
+    </p>
+  </article>
+</BaseLayout>

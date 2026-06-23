@@ -1,0 +1,48 @@
+---
+import type { Article } from '../lib/articles';
+import { articleUrl } from '../lib/articles';
+import { getCategory } from '../consts';
+import FormattedDate from './FormattedDate.astro';
+import MaturityBadge from './MaturityBadge.astro';
+
+interface Props {
+  article: Article;
+  showCategory?: boolean;
+}
+
+const { article, showCategory = true } = Astro.props;
+const { data } = article;
+const category = getCategory(data.category);
+---
+
+<li class="card">
+  <div class="card-meta">
+    {
+      showCategory && category && (
+        <a class="eyebrow" href={`/${category.id}/`}>
+          {category.label}
+        </a>
+      )
+    }
+    <MaturityBadge level={data.maturity} />
+  </div>
+  <h3>
+    <a href={articleUrl(article)}>{data.title}</a>
+  </h3>
+  <p class="muted">{data.description}</p>
+  <p class="muted small">
+    <FormattedDate date={data.pubDate} /> · {data.author}
+  </p>
+</li>
+
+<style>
+  .card-meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-2);
+  }
+  .small {
+    font-size: 0.85rem;
+  }
+</style>
